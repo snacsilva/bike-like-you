@@ -4,8 +4,14 @@ one:
   origin: 1
   destination: 1
   bike_id: 1
+  started_at: 2019-09-25 15:54:57
+  finished_at: 2019-09-25 15:54:57
+  traveled_distance: 1
 
 two:
   origin: 1
   destination: 1
   bike_id: 1
+  started_at: 2019-09-25 15:54:57
+  finished_at: 2019-09-25 15:54:57
+  traveled_distance: 1

@@ -26,6 +26,21 @@
     <%= form.number_field :bike_id %>
   </div>
 
+  <div class="field">
+    <%= form.label :started_at %>
+    <%= form.datetime_select :started_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :finished_at %>
+    <%= form.datetime_select :finished_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :traveled_distance %>
+    <%= form.number_field :traveled_distance %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

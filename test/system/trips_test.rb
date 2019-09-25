@@ -16,7 +16,10 @@ class TripsTest < ApplicationSystemTestCase
 
     fill_in "Bike", with: @trip.bike_id
     fill_in "Destination", with: @trip.destination
+    fill_in "Finished at", with: @trip.finished_at
     fill_in "Origin", with: @trip.origin
+    fill_in "Started at", with: @trip.started_at
+    fill_in "Traveled distance", with: @trip.traveled_distance
     click_on "Create Trip"
 
     assert_text "Trip was successfully created"
@@ -29,7 +32,10 @@ class TripsTest < ApplicationSystemTestCase
 
     fill_in "Bike", with: @trip.bike_id
     fill_in "Destination", with: @trip.destination
+    fill_in "Finished at", with: @trip.finished_at
     fill_in "Origin", with: @trip.origin
+    fill_in "Started at", with: @trip.started_at
+    fill_in "Traveled distance", with: @trip.traveled_distance
     click_on "Update Trip"
 
     assert_text "Trip was successfully updated"
