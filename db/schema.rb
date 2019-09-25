@@ -10,20 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_25_185457) do
+ActiveRecord::Schema.define(version: 2019_09_25_192220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bikes", force: :cascade do |t|
     t.integer "vacancy_id"
-    t.boolean "with_problem"
+    t.boolean "with_problem", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "stations", force: :cascade do |t|
     t.string "name"
+    t.integer "vacancies_bike"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_09_25_185457) do
 
   create_table "vacancies", force: :cascade do |t|
     t.integer "station_id"
-    t.boolean "free"
+    t.boolean "free", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  before_action :set_trip, only: %i[show edit update destroy]
 
   # GET /trips
   # GET /trips.json
@@ -9,8 +11,7 @@ class TripsController < ApplicationController
 
   # GET /trips/1
   # GET /trips/1.json
-  def show
-  end
+  def show; end
 
   # GET /trips/new
   def new
@@ -18,8 +19,7 @@ class TripsController < ApplicationController
   end
 
   # GET /trips/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /trips
   # POST /trips.json
@@ -62,13 +62,14 @@ class TripsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_trip
-      @trip = Trip.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def trip_params
-      params.require(:trip).permit(:origin, :destination, :bike_id, :started_at, :finished_at, :traveled_distance)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_trip
+    @trip = Trip.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def trip_params
+    params.require(:trip).permit(:origin, :destination, :bike_id, :started_at, :finished_at, :traveled_distance)
+  end
 end
