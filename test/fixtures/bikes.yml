@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vacancy_id: 1
+  with_problem: false
+
+two:
+  vacancy_id: 1
+  with_problem: false
