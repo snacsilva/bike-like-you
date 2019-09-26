@@ -2,7 +2,7 @@
 
 class Vacancy < ApplicationRecord
   belongs_to :station
-  has_many :bikes
+  has_one :bike
 
   after_create :create_bikes
 

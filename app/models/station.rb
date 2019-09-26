@@ -10,4 +10,8 @@ class Station < ApplicationRecord
   def vacancies_occupied_count
     vacancies.where(free: false).count
   end
+
+  def bikes_on_station
+    vacancies.map(&:bike)
+  end
 end

@@ -3,7 +3,7 @@ class Api::V1::StationsController < ApplicationController
 
   def index
     @stations = Station.all
-    render json: @stations, :methods => [:vacancies_free_count, :vacancies_occupied_count]
+    render json: @stations, methods: [:vacancies_free_count, :vacancies_occupied_count, :bikes_on_station]
   end
 
   def show; end
