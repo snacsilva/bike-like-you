@@ -7,6 +7,6 @@ class Vacancy < ApplicationRecord
   after_create :create_bikes
 
   def create_bikes
-    Bike.create vacancy_id: self.id
+    Bike.create vacancy_id: id
   end
 end

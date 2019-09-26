@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   resources :bikes
   resources :trips
   resources :stations
@@ -10,7 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :stations
       patch 'bikes/catch'
-      get 'bikes/give_back'
+      patch 'bikes/give_back'
     end
   end
 end
