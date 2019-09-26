@@ -1,4 +1,5 @@
 class Api::V1::StationsController < ApplicationController
+  respont_to :json
   before_action :set_station, only: %i[show edit update destroy]
 
   def index
