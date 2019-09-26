@@ -17,7 +17,7 @@ class Api::V1::BikesController < ApplicationController
       if @trip
         @message = 'This bike is in a trip. Choose another.'
       else
-        
+        Bike.create_trip_and_empty_vacancy @bike
         @message = 'Bike catch! Congrats!'
       end
       render json: { status: 'ok', code: 200, message: @message }
@@ -26,17 +26,17 @@ class Api::V1::BikesController < ApplicationController
     end
   end
 
-  def give_back 
+  def give_back
     if @trip
       if @trip.origin != params[:destination]
-        @trip.update_attributes destination: params[:destination], finished_at: Time.now(), traveled_distance: params[:distance]
-        @message = 'Ok. Thanks for use #BikeLikeYou'
+        Bike.update_trip_and_occupy_vacancy @trip, params, @bike
+        @message = 'Ok. Thanks for use #BikeLikeYou. See ya later'
       else
         @message = 'Station destination is the same as station origin. Please return the bike to another station.'
       end
       render json: { status: 'ok', code: 200, trip: @trip, message: @message }
     else
-      render json: { status: 'error', code: 3000, message: 'I`m sorry, but the bike isn`t in a trip. You can`t give her back.' }
+      render json: { status: 'error', code: 3000, message: 'I`m sorry, but the bike isn`t in a trip. You can`t give it back.' }
     end
   end
 

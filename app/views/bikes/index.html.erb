@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Id</th>
       <th>Vacancy</th>
       <th>With problem</th>
       <th colspan="3"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @bikes.each do |bike| %>
       <tr>
+        <td><%= bike.id %></td>
         <td><%= bike.vacancy_id %></td>
         <td><%= bike.with_problem %></td>
         <td><%= link_to 'Show', bike %></td>
