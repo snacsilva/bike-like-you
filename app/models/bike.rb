@@ -19,9 +19,9 @@ class Bike < ApplicationRecord
     send_bike_broken(bike)
   end
 
-  def self.send_bike_broken(bike)
-    BikeMailer.with(id: bike.id).problem?.deliver_now if bike[:with_problem]
-  end
+  private
+    def self.send_bike_broken(bike)
+      BikeMailer.with(id: bike.id).problem?.deliver_now if bike[:with_problem]
+    end
 
-  private_class_method send_bike_broken
 end
