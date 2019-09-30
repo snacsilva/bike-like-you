@@ -14,7 +14,15 @@ class Bike < ApplicationRecord
     raise 'There is no vacancy at this station. Please apply for another one that has vacancies.' unless vacancy
 
     vacancy.update_attribute :free, false
-    bike.update_attributes vacancy_id: vacancy.id, with_problem: params[:with_problem]
-    trip.update_attributes destination: params[:destination], finished_at: Time.now, traveled_distance: params[:distance]
+    bike.update vacancy_id: vacancy.id, with_problem: params[:with_problem]
+    trip.update destination: params[:destination], finished_at: Time.now, traveled_distance: params[:distance]
+    send_bike_broken(bike)
   end
+
+  private
+    def self.send_bike_broken(bike)
+      BikeMailer.with(id: bike.id).problem?.deliver_now if bike[:with_problem]
+    end
+    
+
 end

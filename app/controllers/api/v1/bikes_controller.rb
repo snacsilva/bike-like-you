@@ -28,7 +28,7 @@ class Api::V1::BikesController < ApplicationController
 
   def give_back
     if @trip
-      if @trip.origin != params[:destination]
+      if @trip.origin != params[:destination].to_i
         Bike.update_trip_and_occupy_vacancy @trip, params, @bike
         @message = 'Ok. Thanks for use #BikeLikeYou. See ya later'
       else
