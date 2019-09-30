@@ -1,24 +1,18 @@
 class VacancyMailer < ApplicationMailer
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.vacancy_mailer.full.subject
-  #
-  def full
+  def full vacancy
+    @vacancy = vacancy
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: "to@example.org",
+         subject: "Crowded station" 
   end
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.vacancy_mailer.empty.subject
-  #
-  def empty
+  def empty vacancy
+    @vacancy = vacancy
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: "to@example.org",
+         subject: "Empty station"
   end
 end

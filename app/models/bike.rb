@@ -23,5 +23,6 @@ class Bike < ApplicationRecord
     def self.send_bike_broken(bike)
       BikeMailer.with(id: bike.id).problem?.deliver_now if bike[:with_problem]
     end
+    
 
 end
