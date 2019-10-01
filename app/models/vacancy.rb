@@ -12,22 +12,25 @@ class Vacancy < ApplicationRecord
   end
 
   def full
-    full = Vacancy.where(station_id: self.station_id, free: false).count
-    full == count_vacancy_station 
+    full = Vacancy.where(station_id: station_id, free: false).count
+    full == count_vacancy_station
   end
-  
+
   def empty
-    empty = Vacancy.where(station_id: self.station_id, free: true).count
-    empty == count_vacancy_station 
+    empty = Vacancy.where(station_id: station_id, free: true).count
+    empty == count_vacancy_station
   end
 
   def count_vacancy_station
-    Vacancy.where(station_id: self.station_id).count
+    Vacancy.where(station_id: station_id).count
   end
 
-  private 
-    def send_mail
-      ( full ? VacancyMailer.full(self).deliver_now : 
-      VacancyMailer.empty(self).deliver_now) if full || self.empty
+  private
+
+  def send_mail
+    if full || empty
+      (full ? VacancyMailer.full(self).deliver_now :
+      VacancyMailer.empty(self).deliver_now)
     end
+  end
 end

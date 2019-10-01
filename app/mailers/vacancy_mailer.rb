@@ -1,18 +1,19 @@
+# frozen_string_literal: true
+
 class VacancyMailer < ApplicationMailer
-
-  def full vacancy
+  def full(vacancy)
     @vacancy = vacancy
-    @greeting = "Hi"
+    @greeting = 'Hi'
 
-    mail to: "to@example.org",
-         subject: "Crowded station" 
+    mail to: 'to@example.org',
+         subject: 'Crowded station'
   end
 
-  def empty vacancy
+  def empty(vacancy)
     @vacancy = vacancy
-    @greeting = "Hi"
+    @greeting = 'Hi'
 
-    mail to: "to@example.org",
-         subject: "Empty station"
+    mail to: 'to@example.org',
+         subject: 'Empty station'
   end
 end
