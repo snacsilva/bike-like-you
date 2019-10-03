@@ -1,5 +1,4 @@
 # Bike like you
-==
 
  Um sistema MVP que disponibiliza um transporte de bicicletas para os cidadãos.
  Onde envia as informaçẽs para um app mobile que exibe as viagens realizadas pelo usuário, que contém os campos: estação de origem, estação de destino, data/hora inicio da viagem, data/hora término da viagem, distância percorrida e qual a bike ele usou.
@@ -14,6 +13,12 @@
 Arquiteruras usadas: MVC, como convenção do RoR, e Rest API, para comunicação cliente-servidor com o app.
 Banco de dados: Postgres.
 Frameworks: Ruby on Rails 6.
+
+==
+
+Architecture: MVC, as a convention in RoR, and Rest API, for client-server communication with the app.
+Database: Postgresql.
+Frameworks: Ruby on Rails 6
 
 Links API:
 
