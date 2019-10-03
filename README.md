@@ -1,24 +1,30 @@
-# README
+# Bike like you
+==
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ Um sistema MVP que disponibiliza um transporte de bicicletas para os cidadãos.
+ Onde envia as informaçẽs para um app mobile que exibe as viagens realizadas pelo usuário, que contém os campos: estação de origem, estação de destino, data/hora inicio da viagem, data/hora término da viagem, distância percorrida e qual a bike ele usou.
 
-Things you may want to cover:
+==
 
-* Ruby version
+ An MVP system that provides a bicycle transport for citizens.
+ Where you send the information to a mobile app that displays the trips made by the user,      which contains the fields: origin station, destination station, trip start date / time, trip  end date / time, distance traveled and which bike used.
 
-* System dependencies
+## Getting Started
 
-* Configuration
+Arquiteruras usadas: MVC, como convenção do RoR, e Rest API, para comunicação cliente-servidor com o app.
+Banco de dados: Postgres.
+Frameworks: Ruby on Rails 6.
 
-* Database creation
+Links API:
 
-* Database initialization
+```
+  /api/v1/stations
+```
 
-* How to run the test suite
+```
+  /api/v1/bikes/catch
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+  /api/v1/bikes/give_back
+```
