@@ -6,8 +6,8 @@ class BikeMailer < ApplicationMailer
   def problem?
     @greeting = 'Hi'
 
-    mail to: 'to@example.org',
-         subject: 'Faulty bike'
+    mail to: 'bikelikeyou@gmail.com',
+         subject: 'Broken bike'
   end
 
   private

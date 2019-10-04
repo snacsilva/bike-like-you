@@ -34,7 +34,7 @@ class Api::V1::BikesController < ApplicationController
       else
         @message = 'Station destination is the same as station origin. Please return the bike to another station.'
       end
-      render json: { status: 'ok', code: 200, trip: @trip, message: @message }
+      render json: { status: 'ok', code: 200, message: @message }
     else
       render json: { status: 'error', code: 3000, message: 'I`m sorry, but the bike isn`t in a trip. You can`t give it back.' }
     end
