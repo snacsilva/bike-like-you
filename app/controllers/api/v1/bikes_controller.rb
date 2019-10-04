@@ -22,7 +22,7 @@ class Api::V1::BikesController < ApplicationController
       end
       render json: { status: 'ok', code: 200, message: @message }
     else
-      render json: { status: 'error', code: 3000, message: 'I`m sorry, but bike has a problem. You can`t catch her.' }
+      render json: { status: 'error', code: 3000, message: 'I`m sorry, but the bike has a problem. You can`t catch her.' }
     end
   end
 
