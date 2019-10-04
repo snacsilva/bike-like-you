@@ -10,7 +10,7 @@ An MVP system that provides a bicycle transport for citizens.
 Where you send the information to a mobile app that displays the trips made by the user,     which contains the fields: origin station, destination station, trip start date / time, trip end date / time, distance traveled and which bike used.
 And also a web app where you can access via facebook and the admin can inform you that the bike is adjusted and create new places.
 
-### Built With
+## Built With
 
 * Arquiteruras usadas: MVC, como convenção do RoR, e Rest API, para comunicação cliente-servidor com o app.
 * Banco de dados: Postgres.
@@ -22,7 +22,7 @@ And also a web app where you can access via facebook and the admin can inform yo
 * Database: Postgresql.
 * Frameworks: Ruby on Rails 6
 
-#### Links API:
+### Links API:
 
 ```
   /api/v1/stations
