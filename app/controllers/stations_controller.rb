@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class StationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_station, only: %i[show edit update destroy]
 
   # GET /stations
