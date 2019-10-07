@@ -19,17 +19,26 @@ Links that the mobile app will fetch and post on API.
 ```
 
 ```
-  POST /api/v1/bikes/catch
+  PATCH /api/v1/bikes/catch
 
-  "id":1
+  "id":1,
+  "auth_token":"SAMA180428"
 ```
 
 ```
-  POST /api/v1/bikes/give_back
+  PATCH /api/v1/bikes/give_back
 
   "id": 1,
   "destination": 3,
   "distance": 1000,
   "with_problem": false
+  "auth_token":"SAMA180428"
 ```
 
+```
+  POST /sign_in 
+```
+
+```
+  DELETE /sign_out
+```

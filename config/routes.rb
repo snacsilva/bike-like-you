@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :stations
-      patch 'bikes/catch'
-      patch 'bikes/give_back'
+      patch  '/catch_bike' => 'bikes#catch'
+      patch  '/give_back_bike' => 'bikes#give_back'
+      post   '/sign_in'  => 'sessions#create'
+      delete '/sign_out' => 'sessions#destroy'
     end
   end
 end

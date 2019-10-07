@@ -3,8 +3,8 @@
 class Bike < ApplicationRecord
   belongs_to :vacancy
 
-  def self.create_trip_and_empty_vacancy(bike)
-    Trip.create origin: bike.vacancy.station_id, bike_id: bike.id, started_at: Time.now, user_id: 
+  def self.create_trip_and_empty_vacancy(bike, user)
+    Trip.create origin: bike.vacancy.station_id, bike_id: bike.id, started_at: Time.now , user_id: user.id
     bike.vacancy.update_attribute :free, true
     update_bike(bike, 0)
   end

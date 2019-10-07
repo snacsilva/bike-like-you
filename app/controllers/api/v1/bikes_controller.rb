@@ -3,6 +3,7 @@
 class Api::V1::BikesController < ApplicationController
   before_action :set_bike, only: %i[show catch give_back]
   before_action :get_trip, only: %i[give_back catch]
+  before_action :load_user
   skip_before_action :verify_authenticity_token
 
   def index
@@ -17,7 +18,7 @@ class Api::V1::BikesController < ApplicationController
       if @trip
         @message = 'This bike is in a trip. Choose another.'
       else
-        Bike.create_trip_and_empty_vacancy @bike
+        Bike.create_trip_and_empty_vacancy @bike, @current_user
         @message = 'Bike catch! Congrats!'
       end
       render json: { status: 'ok', code: 200, message: @message }
@@ -53,4 +54,14 @@ class Api::V1::BikesController < ApplicationController
   def bike_params
     params.require(:bike).permit(:vacancy_id, :with_problem)
   end
+
+  def load_user
+    if params[:auth_token].present?
+      @current_user = User.where(token: params[:auth_token]).try(:first)
+      render json: { status: 'Unauthorized', code: 401, message: 'Unauthorized. Token invalid!' } unless @current_user
+    else
+      render json: { status: 'Unauthorized', code: 401, message: 'Unauthorized. Token invalid!' }
+    end
+  end
+  
 end

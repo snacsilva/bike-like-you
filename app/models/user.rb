@@ -7,6 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
+  before_create :create_token
+  
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
@@ -22,5 +24,13 @@ class User < ApplicationRecord
       user.name = auth.info.name
       user.image = auth.info.image
     end
+  end
+
+  
+  protected
+
+  #callback to create api token when user is created
+  def create_token
+    self.token = email.first(4).upcase + Time.now.strftime("%H:%M:%S").strip().to_s.gsub(/[^\d]/, "")
   end
 end
