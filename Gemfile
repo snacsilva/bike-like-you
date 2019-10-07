@@ -29,7 +29,7 @@ gem 'figaro'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'devise'
+gem 'devise', '>= 4.7.1'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 

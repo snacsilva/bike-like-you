@@ -5,15 +5,15 @@ class VacancyMailer < ApplicationMailer
     @vacancy = vacancy
     @greeting = 'Hi'
 
-    mail to: 'to@example.org',
-         subject: 'Crowded station'
+    mail to: 'bikelikeyou@gmail.com',
+         subject: 'Full station'
   end
 
   def empty(vacancy)
     @vacancy = vacancy
     @greeting = 'Hi'
 
-    mail to: 'to@example.org',
+    mail to: 'bikelikeyou@gmail.com',
          subject: 'Empty station'
   end
 end
